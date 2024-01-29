@@ -1,0 +1,54 @@
+.custom-button {
+    background-color: #37444b; /* Background color */
+    color: #EFEFEF; /* Text color */
+    border: none; /* No border */
+    border-radius: 15px; /* Rounded corners */
+    font-family: Arial; /* Font family */
+    padding: 10px 20px; /* Padding inside the button */
+    text-align: center; /* Center-align text */
+    display: inline-block; /* Line up buttons like block elements */
+    margin: 5px; /* Margin around the button */
+    transition: background-color 0.3s; /* Transition effect for background color change */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+  }
+  
+  .custom-button:hover {
+    background-color: #F0E68C; /* Background color on hover */
+    color: #37444b; /* Text color on hover */
+    font-size: 18px; /* Font size on hover */
+  }
+  
+  input[type=range] {
+    width: 100%; /* Width same as canvas width */
+    height: 15px; /* Height of the slider */
+    border-radius: 15px; /* Rounded corners for the slider */
+    background: #c2ccd0; /* Background color of the slider */
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    outline: none; /* No outline */
+    opacity: 1; /* Full opacity */
+    transition: opacity 0.2s; /* Transition effect for opacity change */
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    appearance: none; /* Standard CSS for removing default styling */
+    width: 25px; /* Width of the thumb */
+    height: 25px; /* Height of the thumb */
+    background: #F0E68C; /* Background color of the thumb */
+    cursor: pointer; /* Cursor pointer when hovering over the thumb */
+    border-radius: 50%; /* Rounded thumb */
+    /* Uncomment below to add bold text on the thumb (if text is added) */
+    /* font-weight: bold; */
+  }
+  
+  input[type=range]::-moz-range-thumb {
+    width: 25px; /* Width of the thumb for Mozilla browsers */
+    height: 25px; /* Height of the thumb for Mozilla browsers */
+    background: #F0E68C; /* Background color of the thumb for Mozilla browsers */
+    cursor: pointer; /* Cursor pointer when hovering over the thumb for Mozilla browsers */
+    border-radius: 50%; /* Rounded thumb for Mozilla browsers */
+    /* Uncomment below to add bold text on the thumb for Mozilla browsers (if text is added) */
+    /* font-weight: bold; */
+  }
+  
