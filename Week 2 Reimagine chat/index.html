@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	 	<title>Chatme</title>
+		
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect();
+			
+			socket.on('connect', function() {
+				console.log("Connected");
+			});
+
+			// Receive from any event
+			socket.on('chatmessage', function (data) {
+				console.log(data);
+				document.getElementById('messages').innerHTML = "" + data + 
+ + "" + document.getElementById('messages').innerHTML;
+			});
+			
+			var sendmessage = function(message) {
+				console.log("chatmessage: " + message);
+				socket.emit('chatmessage', message);
+			};
+		</script>
+		
+		<style>
+			.chattitle {
+				position: absolute;
+                color:rgb(134, 211, 255);
+                background-color:rgb(243, 255, 53);
+                text-shadow: 1px 3px 1px black;
+                width: 600px;
+                left: 440px;
+                top: 150px;
+                font-size: 64px;
+                font-family: Helvetica;
+                text-align: center; 
+				z-index: 4;
+				border: 6px solid black;
+				border-radius: 15px 15px 15px 15px; 
+			}
+
+			#minions {
+				position: fixed; 
+    			top: 50%; 
+    			left: 50%; 
+   		 		transform: translate(-50%, -50%); 
+    			width: 600px; 
+    			opacity: 1;
+    			border-radius: 15px;
+    			z-index: 3;
+				
+				
+				
+			}
+
+			.container {
+    			display: flex;
+				flex-direction: column; 
+    			justify-content: center; 
+    			align-items: center; 
+    			height: 100vh; 
+    			position: relative;
+
+			}
+
+			#chatbox {
+            	height:300px;
+            	background: rgb(134, 211, 255);
+            	padding:50px 10px;
+            	border: 5px solid black;
+            	margin: 20px 10px;
+				border-radius: 15px 15px 15px 15px;
+				width: 560px;
+				z-index: 2;
+				top: 200px;
+        	}
+			
+			#message {
+				position: relative; /* 或者 'absolute'，根据需要调整 */
+    			z-index: 2; /* 确保这个值高于按钮的z-index */
+                color:rgb(134, 211, 255);
+                background-color:rgb(243, 255, 53);
+                text-shadow: 1px 3px 1px black;
+                border: 4px solid black;
+                width: 600px;
+                /* right: 250px; */
+                font-size: 32px;
+                font-family: Helvetica;
+                text-align: left;
+                border-radius: 15px 15px 15px 15px; 
+				top: 0px; /* 假设的起始位置 */
+    			height: 50px; /* 假设的高度，包括padding和border */
+				
+			}
+
+			input[type="submit"] {
+				position: relative; /* 使z-index生效 */
+    			z-index: 1; /* 低于#message的z-index */
+				color:rgb(243, 255, 53);
+        		background-color: rgb(134, 211, 255);
+        		color: black;
+        		padding: 10px 20px;
+        		border: none;
+        		cursor: pointer;
+				left: 20px; 
+    			top: 20px; 
+				border: 4px solid black;
+				font-family: Helvetica;
+				border-radius: 15px 15px 15px 15px; 
+				height: 50px;
+				width: 200px;
+    		}
+
+			input[type="submit"]:hover{
+				color: rgb(134, 211, 255);
+				background-color:rgb(243, 255, 53);
+			}
+
+			#minions {
+               position: fixed;
+               top: 150px;
+               right: 250px;
+               width: 600px;
+               opacity: 1;
+               border-radius: 15px 15px 15px 15px; 
+			   z-index: 3;
+            }
+
+		</style>
+	</head>
+ 
+	<body>
+
+		<h3 class="chattitle">Chatme</h3>
+		<img id="Minions" src="minions.gif">
+		<div class="container">
+			<div id="chatbox"></div>
+			<input type="text" id="message" name="message">
+			<input type="submit" value="submit" onclick="sendmessage(document.getElementById('message').value);">
+		</div>
+
+		
+ 	</body>
+
+ </html>
