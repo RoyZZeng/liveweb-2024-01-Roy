@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: repeating-radial-gradient(circle at 50%, rgb(26, 133, 233), rgb(104, 183, 230) 1em, white 1em, white 2em);
+}
+
+.chat-window {
+    width: 600px;
+    height: 900px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-image img {
+    width: 100%; /* 让图片宽度与 chat-window 相同 */
+    height: auto; /* 保持图片的原始宽高比 */
+    display: block; /* 避免任何不必要的空白间隙 */
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+/* 聊天头部的样式 */
+.chat-header {
+    background-color: rgb(134,211,255); 
+    color: #000; 
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+/* 聊天内容区域的样式 */
+.chat-body {
+    flex: 1;
+    padding: 120px;
+    background-color: rgb(243, 255, 53); 
+    overflow-y: auto;
+    color: #666; 
+    font-family: Arial, sans-serif; 
+}
+
+.chat-footer {
+    background-color: rgb(134,211,255); 
+    padding: 10px;
+    display: flex;
+}
+
+/* 聊天输入框的样式 */
+#message {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    color:rgb(134, 211, 255);
+    text-shadow: 1px 1px 1px black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    font-size: 16px;
+    
+}
+/* button */
+#submit {
+    background-color: #000; 
+    color: rgb(243, 255, 53);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+.send-button:hover {
+    background-color: rgb(243, 255, 53);
+    color: #000;
+}
+/* message showing on the input */
+.message {
+    flex: 1;
+    color: black;
+    background-color: white; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    word-wrap: break-word; /* make sure words cannot go out */
+    
+    
+}
