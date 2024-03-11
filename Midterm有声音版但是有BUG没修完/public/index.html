@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			let submit;
+			window.addEventListener('load', function() {
+				submit = document.getElementById('submit');
+				submit.addEventListener('click', function() {
+					let data = {
+						message: document.getElementById('message').value,
+						color: document.getElementById('color').value
+					};
+					socket.emit('chatmessage', data);
+				})
+
+				document.addEventListener('click', function() {
+					socket.emit('click', {});
+				})
+
+			})
+
+
+			var socket = io.connect();
+			
+			socket.on('connect', function() {
+				console.log("Connected");
+			});
+
+			socket.on('click', function() {
+				console.log('Got a click');
+				document.body.style.backgroundColor = "#000000";
+				setTimeout(function() {
+					document.body.style.backgroundColor = "#ffffff";
+				}, 100);
+			});
+
+			// Receive from any event
+			socket.on('chatmessage', function (data) {
+				console.log(data);
+				let newelement = document.createElement('div');
+				newelement.style.color = data.color;
+				newelement.innerHTML = data.message;
+				document.body.appendChild(newelement);
+// 				document.getElementById('messages').innerHTML = "" + data + 
+//  + "" + document.getElementById('messages').innerHTML;
+			});
+		
+		</script>	
+	</head>
+ <body>
+ <div id="messages">
+ No Messages Yet
+ </div>
+ <input type="text" id="message" name="message">
+ <input type="color" id="color">
+ <input id="submit" type="submit" value="submit">
+ </body>
+</html>
